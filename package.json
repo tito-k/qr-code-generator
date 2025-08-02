@@ -2,13 +2,18 @@
   "name": "qr-code-generator",
   "version": "1.0.0",
   "description": "Express API for generating QR codes from URLs",
-  "main": "server.js",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "build": "tsc",
+    "start": "npm run build && node dist/server.js",
+    "start:prod": "node dist/server.js",
+    "dev": "nodemon src/server.ts",
+    "dev:build": "tsc --watch",
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["express", "qr-code", "api", "generator"],
+  "keywords": ["express", "qr-code", "api", "generator", "typescript"],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -17,6 +22,13 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.17",
+    "@types/qrcode": "^1.5.5",
+    "@types/cors": "^2.8.17",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "rimraf": "^5.0.5"
   }
 }

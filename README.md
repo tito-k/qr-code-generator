@@ -1,4 +1,18 @@
-# QR Code Generator API
+# QR Code Generator API (TypeScript)
+
+A TypeScript Express.js API for generating QR codes from URLs with both web interface and REST API endpoints.
+
+## Features
+
+- 🔗 Generate QR codes from any URL
+- 🖼️ Multiple formats: PNG and SVG
+- 📏 Customizable size
+- 🎨 Optional transparent background
+- 🌐 Web interface for easy testing
+- 🚀 REST API for integration
+- ✅ Input validation and error handling
+- 📱 Responsive design
+- 🔧 Full TypeScript support with type safetyrator API
 
 A simple Express.js API for generating QR codes from URLs with both web interface and REST API endpoints.
 
@@ -26,13 +40,21 @@ cd qr-code-generator
 npm install
 ```
 
-3. Start the server:
+3. Build the project:
 ```bash
-# Production
+npm run build
+```
+
+4. Start the server:
+```bash
+# Production (run compiled JavaScript)
 npm start
 
-# Development (with nodemon)
+# Development (with TypeScript compilation and auto-restart)
 npm run dev
+
+# Development with TypeScript compilation in watch mode (separate terminal)
+npm run dev:build
 ```
 
 The server will start on `http://localhost:3000`
@@ -142,7 +164,43 @@ console.log(data.qrCode); // Base64 encoded image
 - **express**: Web framework
 - **qrcode**: QR code generation library
 - **cors**: Enable CORS for API access
+
+## Dev Dependencies
+
+- **typescript**: TypeScript compiler
+- **@types/express**: TypeScript definitions for Express
+- **@types/qrcode**: TypeScript definitions for QRCode
+- **@types/cors**: TypeScript definitions for CORS
+- **@types/node**: TypeScript definitions for Node.js
+- **ts-node**: TypeScript execution environment
 - **nodemon**: Development dependency for auto-restart
+- **rimraf**: Cross-platform rm -rf
+
+## Project Structure
+
+```
+qr-code-generator/
+├── src/                    # TypeScript source files
+│   ├── server.ts          # Main Express server
+│   ├── types.ts           # TypeScript type definitions
+│   └── utils.ts           # Utility functions
+├── dist/                  # Compiled JavaScript files (generated)
+├── public/                # Static files
+│   └── index.html        # Web interface
+├── package.json          # Dependencies and scripts
+├── tsconfig.json         # TypeScript configuration
+├── nodemon.json          # Nodemon configuration
+├── README.md             # Documentation
+└── .gitignore            # Git ignore file
+```
+
+## TypeScript Features
+
+- **Strict Type Checking**: Full type safety with strict TypeScript configuration
+- **Interface Definitions**: Strongly typed request/response interfaces
+- **Validation Utilities**: Type-safe validation functions
+- **Error Handling**: Properly typed error responses
+- **Development Tools**: TypeScript-aware development environment
 
 ## Error Handling
 
